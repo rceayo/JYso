@@ -109,10 +109,15 @@ dependencies {
     implementation 'org.eclipse.jetty:jetty-server:9.4.51.v20230217'
     implementation 'org.eclipse.jetty:jetty-servlet:9.4.51.v20230217'
     implementation 'org.eclipse.jetty:jetty-util:9.4.51.v20230217'
+    
+    // v diy
+    // dubbo CVE-2023-29234, com/qi4l/JYso/gadgets/Dubbo_cve_2023_29234.java
+    // <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
+    implementation 'org.apache.dubbo:dubbo:3.1.5'
 
 }
 
-
+archivesBaseName = "JYso-v"
 group = 'org.example'
 version = '1.3.8'
 description = 'JYso'
@@ -121,5 +126,10 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 compileJava {
     options.compilerArgs << '-XDignore.symbol.file'
     options.fork = true
-    options.forkOptions.executable = '/Users/qi4l/env/amazon-corretto-8.jdk/Contents/Home/bin/javac'
+    // options.forkOptions.executable = 'C:\\env\\JAVA\\corretto_jdk1.8.0_412\\bin\\javac.exe'
+    // options.forkOptions.executable = '/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin/javac'
+    // 251报错 bcel的classloader找不到，但是382不报错
+    // options.forkOptions.executable = '/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/bin/javac'
+    options.forkOptions.executable = '/Users/v/Library/Java/JavaVirtualMachines/corretto-1.8.0_382/Contents/Home/bin/javac'
+
 }
