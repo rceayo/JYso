@@ -9,3 +9,8 @@ bun.lockb
 src/main/frontend/dist/
 src/main/resources/static/
 .trae/
+
+# v diy
+.vscode/
+bin/
+.history/
